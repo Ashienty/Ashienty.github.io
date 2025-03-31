@@ -1,3 +1,7 @@
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,21 +9,27 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-
+/* background and containers */
 .background {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   background-image: url("Documents/backgroundFormat.jpg");
+  background-size: cover;
   background-repeat: repeat-y;
 }
 
+.content {
+  width: 100%;
+}
+/*Header and nav*/
 header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   background: rgba(51, 51, 51, 0.5);
   color: white;
   min-height: 100vh;
+  position: relative;
 }
 .sideColumn {
   height: 100vh;
@@ -27,13 +37,17 @@ header {
   align-content: center;
   margin: 0px 0px 0px 15px;
   padding: 15px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+
 /*pointers*/
 
 .pointers {
   position: absolute;
   display: flex;
-  top: 0;
+  top: 6px;
   right: 50px;
   gap: 20px;
 }
@@ -240,7 +254,253 @@ section * {
   padding: 0;
 }
 
-* {
-  font-size: 20px;
-  scrollbar-width: 0;
+#darkMode {
+  display: flex;
+  align-self: center;
+  width: 60px;
+  height: 30px;
+  background: black;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  margin: 0%;
+  padding: 0%;
+  transition: background 0.3s;
+}
+
+#darkMode button {
+  display: flex;
+  align-self: center;
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  left: 0%;
+  transition: left 0.3s;
+}
+
+#darkMode.active {
+  background: white;
+}
+
+#darkMode.active button {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transition: left 0.3s;
+}
+/**/
+/* Estilos para modo light */
+body.light-mode {
+  background-color: #f2f2f2;
+  color: #000;
+}
+
+body.light-mode header {
+  background: rgba(200, 200, 200, 0.8);
+  color: #000;
+}
+body.light-mode header aside {
+  background: rgba(200, 200, 200, 0.8);
+  color: #000;
+}
+body.light-mode header aside button {
+  background: rgb(30, 100, 0, 0.4);
+  color: #000;
+}
+
+body.light-mode nav {
+  background-color: rgba(200, 200, 200, 0.8);
+  color: #000;
+}
+body.light-mode nav a {
+  color: #000;
+}
+
+body.light-mode section {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+body.light-mode section span {
+  color: #000;
+}
+/*responsive*/
+@media (max-width: 1024px) {
+  .arrow,
+  .cursor,
+  #contact span {
+    display: none;
+  }
+  #contact {
+    position: fixed;
+    left: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+  }
+
+  #contact div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .icons {
+    width: 24px;
+    height: 24px;
+  }
+  header {
+    padding: 20px;
+  }
+  .sideColumn {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+  nav {
+    position: relative;
+    margin: 10px;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav ul li {
+    margin: 0 10px;
+  }
+  section {
+    padding: 50px 20px 20px 20px;
+    height: auto;
+    margin: 20px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .arrow,
+  .cursor,
+  #contact span {
+    display: none;
+  }
+  #contact {
+    position: fixed;
+    left: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+  }
+
+  #contact div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .icons {
+    width: 24px;
+    height: 24px;
+  }
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+  header {
+    align-items: center;
+    min-height: auto;
+  }
+  .sideColumn {
+    margin: 0;
+    padding: 10px;
+  }
+  .pointers {
+    top: 4px;
+    right: 20px;
+    gap: 10px;
+  }
+  nav {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li {
+    margin: 5px 0;
+  }
+  section {
+    padding: 40px 10px;
+    margin: 10px;
+  }
+  .button {
+    width: 120px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrow,
+  .cursor,
+  #contact span {
+    display: none;
+  }
+  #contact {
+    position: fixed;
+    left: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+  }
+
+  #contact div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .icons {
+    width: 24px;
+    height: 24px;
+  }
+  * {
+    font-size: 14px;
+  }
+  header,
+  .sideColumn,
+  nav,
+  section {
+    padding: 10px;
+  }
+  nav ul li a {
+    font-size: 16px;
+    padding: 8px;
+  }
+  #contact {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+  #contact p {
+    margin-left: 0;
+    margin-top: 5px;
+  }
 }

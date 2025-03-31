@@ -108,3 +108,19 @@ imgs.forEach((img) => {
     nameDisplay.style.display = "none";
   });
 });
+//DarkMode
+function toggleDarkMode() {
+  let switchElement = document.getElementById("darkMode");
+  let button = switchElement.querySelector("button");
+  let body = document.body;
+
+  if (switchElement.classList.contains("active")) {
+    switchElement.classList.remove("active");
+    body.classList.remove("light-mode");
+    button.innerHTML = "🌕";
+  } else {
+    switchElement.classList.add("active");
+    body.classList.add("light-mode");
+    button.innerHTML = "🌑";
+  }
+}
