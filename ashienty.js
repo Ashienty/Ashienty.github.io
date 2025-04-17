@@ -1,8 +1,15 @@
 /*Boton de descarga*/
 document.getElementById("target").addEventListener("click", function () {
+  console.log(document.documentElement.lang);
   const link = document.createElement("a");
-  link.href = "Documents/CV2025.pdf";
-  link.download = "CV2025.pdf";
+  if (!document.documentElement.lang.startsWith("es")) {
+    link.href = "Documents/CV2025EN.pdf";
+    link.download = "CV2025EN.pdf";
+  } else {
+    link.href = "Documents/CV2025.pdf";
+    link.download = "CV2025.pdf";
+  }
+
   link.click();
 });
 /*Cursor con seguimiento*/
@@ -100,7 +107,7 @@ imgs.forEach((img) => {
     nameDisplay.textContent = event.target.getAttribute("data-name");
     nameDisplay.style.display = "block";
 
-    nameDisplay.style.left = `${event.pageX + 10}px`;
+    nameDisplay.style.left = `${event.pageX - 20}px`;
     nameDisplay.style.top = `${event.pageY + 10}px`;
   });
 
@@ -123,4 +130,21 @@ function toggleDarkMode() {
     body.classList.add("light-mode");
     button.innerHTML = "🌑";
   }
+}
+//Boton de cambio de lenguaje
+const flagButton = document.getElementById("flag");
+
+flagButton.addEventListener("click", () => {
+  if (flagButton.textContent.trim() === "🇬🇧") {
+    localStorage.setItem("language", "en");
+    window.location.href = "indexIngles.html";
+  } else {
+    localStorage.setItem("language", "es");
+    window.location.href = "index.html";
+  }
+});
+
+const userLang = navigator.language;
+if (!userLang.startsWith("es")) {
+  window.location.href = "indexIngles.html";
 }
